@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+Rooms | DjangoChat
+{% endblock %}
+
+{% load static %}
+
+{% block body_content %}
+    <div class='container mt-5 d-flex flex-column align-items-center'>
+        <h1>{% block header %}Rooms{% endblock header %}</h1>
+    </div>
+    <div class='container mt-5'>
+        <div class="card-body d-flex flex-row">
+            {% for room in rooms %}
+                <div class="card me-2 mt-5 shadow-sm p-3 mb-5 bg-body rounded" style="width: 18rem;">
+                    <img src="{% static 'img/room.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ room.name }}</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="{% url 'room' room.slug %}" class="btn btn-primary">Enter</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock body_content %}

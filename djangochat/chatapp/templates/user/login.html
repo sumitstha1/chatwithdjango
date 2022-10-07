@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+Login | DjangoChat
+{% endblock title %}
+
+{% block body_content %}
+    <div class="container-sm mt-5 d-flex flex-column align-items-center shadow p-3 mb-5 bg-body rounded">
+        <h1>{% block header %}Log In{% endblock header %}</h1>
+        <form method="POST" action="." class='container mt-5'>
+            {% csrf_token %}
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <p>{{ error|escape }}</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" aria-label="Username" aria-describedby="basic-addon1" onblur="validate(1)">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" onblur= "validate(2)">
+            </div>
+            <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
+    </div>
+{% endblock body_content %}
+
+

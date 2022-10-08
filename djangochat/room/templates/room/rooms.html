@@ -17,8 +17,12 @@ Rooms | DjangoChat
                     <img src="{% static 'img/room.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ room.name }}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{% url 'room' room.slug %}" class="btn btn-primary">Enter</a>
+                        <a href="{% url 'room' room.slug %}" class="btn btn-primary d-flex w-50">
+                            Enter
+                            <span class="ms-1 d-flex justify-content-center align-items-center">
+                                <ion-icon name="arrow-forward-outline"></ion-icon>
+                            </span>
+                        </a>
                     </div>
                 </div>
             {% endfor %}

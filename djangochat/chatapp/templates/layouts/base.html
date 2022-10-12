@@ -32,34 +32,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
-                  </li>
-                </ul>
-                <div class="btn-toolbar navbar-collapse ms-5" role="toolbar" aria-label="Toolbar with button groups">
                   {% if request.user.is_authenticated %}
-                    <div class="btn-group me-2" role="group" aria-label="Second group">
+                    <li class="nav-item">
                       <a href="/rooms/"><button type="button" class="btn btn-dark">Rooms</button></a>
-                    </div>
-                    <div class="btn-group me-2" role="group" aria-label="First group">
+                    </li>
+                    <li class="nav-item">
                       <a href="/logout/"><button type="button" class="btn btn-primary">Log out</button></a>
-                    </div>
+                    </li>
                   {% else %}
-                    <div class="btn-group me-2" role="group" aria-label="First group">
+                    <li class="nav-item">
                       <a href="/login/"><button type="button" class="btn btn-dark">Log in</button></a>
-                    </div>
-                    <div class="btn-group me-2" role="group" aria-label="Second group">
+                    </li>
+                    <li class="nav-item">
                       <a href="/signup"><button type="button" class="btn btn-primary">Sign up</button></a>
-                    </div>
+                    </li>
                   {% endif %}
-                  
-                </div>
+                </ul>
             </div>
         </div>
     </nav>
